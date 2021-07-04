@@ -1,0 +1,29 @@
+{
+  "name": "if-js",
+  "version": "1.0.0",
+  "description": "\"# if-js\"",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "eslint": "npx eslint main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexanderTalyaronok/if-js.git"
+  },
+  "author": "Alexander Talyaronok",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexanderTalyaronok/if-js/issues"
+  },
+  "homepage": "https://github.com/AlexanderTalyaronok/if-js#readme",
+  "devDependencies": {
+    "eslint": "^7.30.0",
+    "husky": "^7.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm eslint" 
+    }
+  }
+}
