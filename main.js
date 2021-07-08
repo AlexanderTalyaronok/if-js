@@ -1,10 +1,17 @@
-let a = 5;
-let b = 10;
+let user = "John Doe";
+console.log(user);
 
-function sum(a, b) {
-    return a + b;
-}
+let student = "Alex";
+console.log(student);
 
-sum(a, b);
+user = student; // user = "Alex"
+console.log(user);
 
-console.log(sum(a, b));
+let test = 1;
+test++;
+test += "1"; // test = 21
+console.log(test);
+test -= 1; // test = 20
+console.log(test);
+test = Boolean(test); // test = true
+console.log(test);
