@@ -37,7 +37,7 @@ for (let i = 0; i < numbers.length; i++) {
 // display even array elements
 numbers = [2, 5, 8, 15, 0, 6, 20, 3];
 for (let i = 0; i < numbers.length; i++) {
-    if (i % 2 == 1) {
+    if (numbers[i] % 2 === 0) {
         console.log(numbers[i]);
     }
 }
