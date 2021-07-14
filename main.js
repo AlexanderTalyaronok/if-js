@@ -1,43 +1,68 @@
-// lesson-2-1
-let user = "John Doe";
-console.log(user);
+//lesson-3
+// checks whether it's a palindrome and returns a bool value
+function palindrome(str) {
+    str = str.toLowerCase();
 
-let student = "Alex";
-console.log(student);
-
-user = student; // user = "Alex"
-console.log(user);
-
-let test = 1;
-test++;
-test += "1"; // test = 21
-console.log(test);
-test -= 1; // test = 20
-console.log(test);
-test = Boolean(test); // test = true
-console.log(test);
-
-// lesson-2-2
-// display the product of array elements
-let numbers = [2, 3, 5, 8];
-let result = 1;
-for (let i = 0; i < numbers.length; i++) {
-    result *= numbers[i];
+    return str === str.split("").reverse().join("");
 }
-console.log(result);
 
-// display array elements that are greater than 5 and less than 10
-numbers = [2, 5, 8, 15, 0, 6, 20, 3];
-for (let i = 0; i < numbers.length; i++) {
-    if (5 < numbers[i] & numbers[i] < 10) {
-        console.log(numbers[i]);
+ console.log( palindrome("Madam") );
+ console.log( palindrome("echo") );
+
+ // the function returns the smallest value 
+ function min(a, b) {
+    if (a < b) {
+        return a;
     }
-}
 
-// display even array elements
-numbers = [2, 5, 8, 15, 0, 6, 20, 3];
-for (let i = 0; i < numbers.length; i++) {
-    if (numbers[i] % 2 === 0) {
-        console.log(numbers[i]);
+    return b;
+ }
+
+ console.log( min(3, 7) );
+
+ // the same function using the ternary operator
+ function min(a, b) {
+    return a < b ? a : b;
+ }
+
+ console.log( min(6, 2) );
+
+ // the function returns the greatest value
+ function max(a, y) {
+    if (a > y) {
+        return a;
     }
-}
+
+    return y;
+ }
+
+ console.log( max(9, 4) );
+
+ // the same function using the ternary operator
+ function max(a, y) {
+    return a > y ? a : y;
+ }
+
+ console.log( max(5, 8) );
+
+ // the function generates array with 10 random values between 0 and 100, then replaces 0 with "zero"
+ function zeroReplace() {
+    let arr = new Array();
+
+    for (let i = 0; i < 10; i++) {
+        arr[i] = Math.floor(Math.random() * 100);
+    }
+
+    console.log(arr);
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === 0 || arr[i] % 10 === 0 || arr[i] === 100) {
+            arr[i] = arr[i].toString().replace("00", "zerozero");
+            arr[i] = arr[i].toString().replace("0", "zero");
+        }
+    }
+
+    console.log(arr);
+ }
+
+ zeroReplace();
