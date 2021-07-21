@@ -18,20 +18,16 @@ console.log(max(4, 9));
 // the function generates array with 10 random values between 0 and 100, then replaces 0 with "zero"
 const arr = [];
 
-function arrGenerate(arr) {
+const arrGenerate = (() => {
     for (let i = 0; i < 10; i++) {
         arr[i] = Math.floor(Math.random() * 100).toString();
     }
 
     return arr;
-}
+})();
 
-function zeroReplace(arr) {
-    arrGenerate(arr);
+console.log(arrGenerate);
 
-    const arrChange = arr.map((item) => item.replace(/0/g, "zero"));
+const zeroReplace = () => arr.map(item => item.replace(/0/g, "zero"));
 
-    return arrChange;
-}
-
-console.log(zeroReplace(arr));
+console.log(zeroReplace());
