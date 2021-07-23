@@ -36,22 +36,22 @@ const text1 = document.getElementById("text1");
 const text2 = document.getElementById("text2");
 const text3 = document.getElementById("text3");
 
-function changeColor(textId) {
-    for (let i = 0; i < colors.length; i++) {
-        if (i === colors.length - 1) {
-            return textId.style.backgroundColor = colors[0];
+const changeColor = () => {
+    let counter = 0;
+
+    return (event) => {
+        if (counter === colors.length) {
+            counter = 0;
+            return event.target.style.backgroundColor = colors[counter++];
         }
-        else if (textId.style.backgroundColor === colors[i]) {
-            return textId.style.backgroundColor = colors[++i];
-        } 
+        
+        return event.target.style.backgroundColor = colors[counter++];
     }
+} 
 
-    return textId.style.backgroundColor = colors[0];
-}
-
-text1.addEventListener('click', changeColor.bind(null, text1));
-text2.addEventListener('click', changeColor.bind(null, text2));
-text3.addEventListener('click', changeColor.bind(null, text3));
+text1.addEventListener('click', changeColor());
+text2.addEventListener('click', changeColor());
+text3.addEventListener('click', changeColor());
 
 // the sum function 
 const sum = (a) => (b) => a + b;
