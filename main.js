@@ -1,43 +1,60 @@
-// lesson-2-1
-let user = "John Doe";
-console.log(user);
+//lesson-3
+// checks whether it's a palindrome and returns a bool value
+const palindrome = (str) => str.toLowerCase() === str.split("").reverse().join("").toLowerCase();
 
-let student = "Alex";
-console.log(student);
+console.log(palindrome("Madam"));
+console.log(palindrome("echo"));
 
-user = student; // user = "Alex"
-console.log(user);
+// the function returns the smallest value 
+const min = (a, b) => a < b ? a : b;
 
-let test = 1;
-test++;
-test += "1"; // test = 21
-console.log(test);
-test -= 1; // test = 20
-console.log(test);
-test = Boolean(test); // test = true
-console.log(test);
+console.log(min(6, 2));
 
-// lesson-2-2
-// display the product of array elements
-let numbers = [2, 3, 5, 8];
-let result = 1;
-for (let i = 0; i < numbers.length; i++) {
-    result *= numbers[i];
-}
-console.log(result);
+// the function returns the greatest value
+const max = (a, b) => a > b ? a : b;
 
-// display array elements that are greater than 5 and less than 10
-numbers = [2, 5, 8, 15, 0, 6, 20, 3];
-for (let i = 0; i < numbers.length; i++) {
-    if (5 < numbers[i] & numbers[i] < 10) {
-        console.log(numbers[i]);
+console.log(max(4, 9));
+
+// the function generates array with 10 random values between 0 and 100, then replaces 0 with "zero"
+const generateArr = (arrLength) => {
+    const arr = [];
+
+    for (let i = 0; i < arrLength; i++) {
+        arr[i] = Math.floor(Math.random() * 200);
     }
-}
 
-// display even array elements
-numbers = [2, 5, 8, 15, 0, 6, 20, 3];
-for (let i = 0; i < numbers.length; i++) {
-    if (numbers[i] % 2 === 0) {
-        console.log(numbers[i]);
-    }
-}
+    return arr;
+};
+ 
+const replaceZero = (arr) => arr.map((item) => String(item).includes("0") ? String(item).replace(/0/g, "zero") : item);
+
+console.log(replaceZero(generateArr(10)));
+
+// lesson-4 
+const colors = ["magenta", "cyan", "firebrick", "springgreen", "skyblue"];
+const text1 = document.getElementById("text1");
+const text2 = document.getElementById("text2");
+const text3 = document.getElementById("text3");
+
+const changeColor = () => {
+    let counter = 0;
+
+    return (event) => {
+        if (counter === colors.length) {
+            counter = 0;
+        }
+
+        event.target.style.backgroundColor = colors[counter];
+
+        counter++;
+    };
+}; 
+
+text1.addEventListener('click', changeColor());
+text2.addEventListener('click', changeColor());
+text3.addEventListener('click', changeColor());
+
+// the sum function 
+const sum = (a) => (b) => a + b;
+
+console.log(sum(5)(2));
