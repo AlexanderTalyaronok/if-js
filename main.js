@@ -42,12 +42,13 @@ const changeColor = () => {
     return (event) => {
         if (counter === colors.length) {
             counter = 0;
-            return event.target.style.backgroundColor = colors[counter++];
         }
-        
-        return event.target.style.backgroundColor = colors[counter++];
-    }
-} 
+
+        event.target.style.backgroundColor = colors[counter];
+
+        counter++;
+    };
+}; 
 
 text1.addEventListener('click', changeColor());
 text2.addEventListener('click', changeColor());
