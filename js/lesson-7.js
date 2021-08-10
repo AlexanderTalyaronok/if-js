@@ -165,34 +165,30 @@ const hotels = [
 
 // the search function
 const findHotelInfo = (str) => {
-	const arr = [];
+	return hotels.reduce((acc, curr) => {
+		const temp = `${curr.country}, ${curr.city}, ${curr.name}`;
 
-	hotels.map((item) => {
-		const temp = `${item.country}, ${item.city}, ${item.name}`;
-
-		if (Object.values(item).includes(str)) {
-			arr.push(temp);
+		if (Object.values(curr).includes(str)) {
+			acc.push(temp);
 		}
-	});
 
-	return arr;
+    return acc;
+	}, []);
 };
 
-console.log(findHotelInfo('Germany'));
+console.log(findHotelInfo('Russia'));
 
 // The function returns an associative object from an array of objects
 const getInfo = (arr) => {
-	const info = {};
-
-	arr.forEach(elem => {
-		if (!info[elem.country]) {
-			info[elem.country] = [elem.city];
-		} else if (!info[elem.country].includes(elem.city)) {
-			info[elem.country].push(elem.city);
+	return arr.reduce((acc, curr) => {
+		if (!acc[curr.country]) {
+			acc[curr.country] = [curr.city];
+		} else if (!acc[curr.country].includes(curr.city)) {
+			acc[curr.country].push(curr.city);
 		}
-	});
 
-	return info;
+    return acc;
+	}, {});
 }
 
 console.log(getInfo(hotels));
