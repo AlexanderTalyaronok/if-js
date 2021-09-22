@@ -54,8 +54,8 @@ class Students {
   }
 
   getInfo() {
-    return this.studentsData.sort((a, b) => b.admissionYear - a.admissionYear).reduce((acc, curr) => {
-      const student = new Student(curr.firstName, curr.lastName, curr.admissionYear, curr.courseName);
+    return this.studentsData.sort((a, b) => b.admissionYear - a.admissionYear).reduce((acc, currentStudent) => {
+      const student = new Student(currentStudent.firstName, currentStudent.lastName, currentStudent.admissionYear, currentStudent.courseName);
       acc.push(`${student.fullName} - ${student.courseName}, ${student.course} курс`);
       return acc;
     }, [])
